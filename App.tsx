@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
 
 import HelloWorld from './components/HelloWorld';
 import Greeter from './components/Greeter';
@@ -7,8 +8,12 @@ import InputGreeter from './components/InputGreeter';
 import FlexDirection from './components/FlexDirection';
 import ImageTest from './components/ImageTest';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import ScrollViewDemo from './components/ScrollViewDemo';
+import FlatListDemo from './components/FlatListDemo';
+import PerformanceDemo from './components/PerformanceDemo';
 
 export default function App() {
+  const [useFlatList, setUseFlatList] = useState(true);
 
   const test = { fontSize: 60 };
 
@@ -23,9 +28,22 @@ export default function App() {
       <InputGreeter />
 
       <StatusBar style="auto" /> */}
-      <FlexDirection />
+      {/* <FlexDirection />
       <ImageTest />
-      <AntDesign name="api" size={24} color="black" />
+      <AntDesign name="api" size={24} color="black" /> */}
+      {/* <ScrollViewDemo /> */}
+      {/* <FlatListDemo /> */}
+
+      <TouchableOpacity
+        style={styles.toggleButton}
+        onPress={() => setUseFlatList(!useFlatList)}
+      >
+        <Text style={styles.toggleText}>
+          Switch to {useFlatList ? 'ScrollView' : 'FlatList'}
+        </Text>
+      </TouchableOpacity>
+
+      <PerformanceDemo useFlatList={useFlatList} />
     </View>
   );
 }
@@ -37,5 +55,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#d9bbbbff',
     alignItems: 'center',
     justifyContent: 'flex-start',
+  },
+  toggleButton: {
+    backgroundColor: '#1976D2',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    marginVertical: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  toggleText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
