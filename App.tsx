@@ -5,6 +5,8 @@ import HelloWorld from './components/HelloWorld';
 import Greeter from './components/Greeter';
 import InputGreeter from './components/InputGreeter';
 import FlexDirection from './components/FlexDirection';
+import ImageTest from './components/ImageTest';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function App() {
 
@@ -22,6 +24,8 @@ export default function App() {
 
       <StatusBar style="auto" /> */}
       <FlexDirection />
+      <ImageTest />
+      <AntDesign name="api" size={24} color="black" />
     </View>
   );
 }
