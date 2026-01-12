@@ -104,20 +104,20 @@ export default function PerformanceDemo({ useFlatList }: PerformanceDemoProps) {
           contentContainerStyle={styles.listContent}
         />
     );
+  } else {
+    // ScrollView renders ALL items at once
+    selectedScrollOutput = (
+        <ScrollView contentContainerStyle={styles.listContent}>
+          {renderHeader()}
+          {data.map((item, index) => (
+            <React.Fragment key={item.id}>
+              {renderItem(item)}
+              {index < data.length - 1 && <View style={styles.separator} />}
+            </React.Fragment>
+          ))}
+        </ScrollView> 
+    );
   }
-
-  // ScrollView renders ALL items at once
-  selectedScrollOutput = (
-      <ScrollView contentContainerStyle={styles.listContent}>
-        {renderHeader()}
-        {data.map((item, index) => (
-          <React.Fragment key={item.id}>
-            {renderItem(item)}
-            {index < data.length - 1 && <View style={styles.separator} />}
-          </React.Fragment>
-        ))}
-      </ScrollView> 
-  );
 
   return (
     <View style={styles.container}>
