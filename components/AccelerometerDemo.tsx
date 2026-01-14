@@ -30,6 +30,11 @@ export default function AccelerometerDemo() {
       setX(x);
       setY(y);
       setZ(z);
+
+      //console.log(x)
+      if(x > 5) {
+        console.log("SHAKE")
+      }
     });
   };
 

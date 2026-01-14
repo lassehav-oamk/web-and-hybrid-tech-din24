@@ -11,6 +11,13 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import ScrollViewDemo from './components/ScrollViewDemo';
 import FlatListDemo from './components/FlatListDemo';
 import PerformanceDemo from './components/PerformanceDemo';
+import ShakeDetector from './components/ShakeDetector';
+import { Accelerometer } from 'expo-sensors';
+import AccelerometerDemo from './components/AccelerometerDemo';
+import Compass from './components/Compass';
+import TiltController from './components/TiltController';
+import GeolocationDemo from './components/GeolocationDemo';
+import SMSComponent from './components/SMSComponent';
 
 export default function App() {
   const [useFlatList, setUseFlatList] = useState(true);
@@ -34,7 +41,7 @@ export default function App() {
       {/* <ScrollViewDemo /> */}
       {/* <FlatListDemo /> */}
 
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.toggleButton}
         onPress={() => setUseFlatList(!useFlatList)}
       >
@@ -43,7 +50,13 @@ export default function App() {
         </Text>
       </TouchableOpacity>
 
-      <PerformanceDemo useFlatList={useFlatList} />
+      <PerformanceDemo useFlatList={useFlatList} /> */}
+      {/* <AccelerometerDemo /> */}
+      {/* <ShakeDetector /> */}
+      {/* <Compass /> */}
+      {/* <TiltController /> */}
+      {/* <GeolocationDemo /> */}
+      <SMSComponent />
     </View>
   );
 }
