@@ -18,6 +18,8 @@ import Compass from './components/Compass';
 import TiltController from './components/TiltController';
 import GeolocationDemo from './components/GeolocationDemo';
 import SMSComponent from './components/SMSComponent';
+import StackNavigatorDemo from './components/navigationDemo1/StackNavigatorDemo';
+import TabNavigatorDemo from './components/navigationDemo1/TabNavigatorDemo';
 
 export default function App() {
   const [useFlatList, setUseFlatList] = useState(true);
@@ -25,40 +27,11 @@ export default function App() {
   const test = { fontSize: 60 };
 
   return (
-    <View style={styles.container}>
-      {/* <Text style={test}>Hello react native world!</Text>
-      <Text>This kind of text is  allowed</Text>
-      <HelloWorld />
-
-      <Greeter username="Lasse" />
-
-      <InputGreeter />
-
-      <StatusBar style="auto" /> */}
-      {/* <FlexDirection />
-      <ImageTest />
-      <AntDesign name="api" size={24} color="black" /> */}
-      {/* <ScrollViewDemo /> */}
-      {/* <FlatListDemo /> */}
-
-      {/* <TouchableOpacity
-        style={styles.toggleButton}
-        onPress={() => setUseFlatList(!useFlatList)}
-      >
-        <Text style={styles.toggleText}>
-          Switch to {useFlatList ? 'ScrollView' : 'FlatList'}
-        </Text>
-      </TouchableOpacity>
-
-      <PerformanceDemo useFlatList={useFlatList} /> */}
-      {/* <AccelerometerDemo /> */}
-      {/* <ShakeDetector /> */}
-      {/* <Compass /> */}
-      {/* <TiltController /> */}
-      {/* <GeolocationDemo /> */}
-      <SMSComponent />
-    </View>
-  );
+  // <StackNavigatorDemo />
+    <TabNavigatorDemo />
+  )
+    
+  
 }
 
 const styles = StyleSheet.create({

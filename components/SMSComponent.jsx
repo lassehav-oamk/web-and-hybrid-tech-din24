@@ -6,7 +6,8 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
-  Platform
+  Platform,
+  ScrollView
 } from 'react-native';
 import * as SMS from 'expo-sms';
 
@@ -90,7 +91,7 @@ export default function SMSComponent() {
   const messageLength = message.length;
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>Send SMS</Text>
 
       {/* SMS Availability Status */}
@@ -98,7 +99,7 @@ export default function SMSComponent() {
         <Text style={styles.statusLabel}>SMS Available:</Text>
         <Text style={[
           styles.statusValue,
-          { color: isSMSAvailable ? '#4CAF50' : '#F44336' }
+          { color: isSMSAvailable ? '#000' : '#888' }
         ]}>
           {isSMSAvailable ? 'Yes' : 'No'}
         </Text>
@@ -110,7 +111,7 @@ export default function SMSComponent() {
         <TextInput
           style={styles.input}
           placeholder="Enter phone number"
-          placeholderTextColor="#999"
+          placeholderTextColor="#888"
           value={phoneNumber}
           onChangeText={setPhoneNumber}
           keyboardType="phone-pad"
@@ -124,7 +125,7 @@ export default function SMSComponent() {
         <TextInput
           style={styles.textArea}
           placeholder="Enter your message"
-          placeholderTextColor="#999"
+          placeholderTextColor="#888"
           value={message}
           onChangeText={setMessage}
           multiline
@@ -179,7 +180,7 @@ export default function SMSComponent() {
       <Text style={styles.platformInfo}>
         Platform: {Platform.OS}
       </Text>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -187,125 +188,109 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#fff',
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#333',
+    color: '#000',
     textAlign: 'center',
   },
   statusContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 12,
+    padding: 10,
     backgroundColor: '#fff',
-    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#000',
     marginBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
   },
   statusLabel: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '600',
     marginRight: 8,
-    color: '#333',
+    color: '#000',
   },
   statusValue: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
   },
   inputGroup: {
-    marginBottom: 20,
+    marginBottom: 16,
   },
   label: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '600',
-    marginBottom: 8,
-    color: '#333',
+    marginBottom: 6,
+    color: '#000',
   },
   input: {
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    padding: 12,
-    fontSize: 16,
-    color: '#333',
+    borderColor: '#000',
+    padding: 10,
+    fontSize: 14,
+    color: '#000',
   },
   textArea: {
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    padding: 12,
-    fontSize: 16,
-    minHeight: 120,
-    color: '#333',
+    borderColor: '#000',
+    padding: 10,
+    fontSize: 14,
+    minHeight: 100,
+    color: '#000',
   },
   infoContainer: {
     backgroundColor: '#fff',
-    padding: 16,
-    borderRadius: 8,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: '#000',
     marginBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
   },
   infoRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 8,
+    marginBottom: 6,
   },
   infoLabel: {
-    fontSize: 14,
-    color: '#666',
-    fontWeight: '500',
+    fontSize: 12,
+    color: '#000',
   },
   infoValue: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 'bold',
-    color: '#4CAF50',
+    color: '#000',
   },
   warningText: {
-    color: '#FF9800',
+    color: '#000',
+    textDecorationLine: 'underline',
   },
   warningNote: {
-    fontSize: 12,
-    color: '#FF9800',
+    fontSize: 11,
+    color: '#000',
     fontStyle: 'italic',
-    marginTop: 8,
+    marginTop: 6,
   },
   sendButton: {
-    backgroundColor: '#2196F3',
-    padding: 16,
-    borderRadius: 8,
+    backgroundColor: '#000',
+    padding: 14,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 4,
   },
   sendButtonDisabled: {
-    backgroundColor: '#ccc',
+    backgroundColor: '#888',
   },
   sendButtonText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   platformInfo: {
     textAlign: 'center',
-    marginTop: 20,
-    fontSize: 12,
-    color: '#999',
+    marginTop: 16,
+    fontSize: 11,
+    color: '#888',
   },
 });
