@@ -3,7 +3,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import { useUser } from '../UserContext';
 
 export default function Dashboard() {
-  const { userData } = useUser();
+  const contextData = useUser();
+  const userData = contextData.userData;
 
   return (
     <View style={styles.container}>
