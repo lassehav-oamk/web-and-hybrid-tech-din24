@@ -20,6 +20,8 @@ import GeolocationDemo from './components/GeolocationDemo';
 import SMSComponent from './components/SMSComponent';
 import StackNavigatorDemo from './components/navigationDemo1/StackNavigatorDemo';
 import TabNavigatorDemo from './components/navigationDemo1/TabNavigatorDemo';
+import SimpleStackNavDemo from './components/navigationDemo1/SimpleStackNavDemo';
+import TabNavContextDemo from './components/navigationDemo2/TabNavContextDemo';
 
 export default function App() {
   const [useFlatList, setUseFlatList] = useState(true);
@@ -27,8 +29,10 @@ export default function App() {
   const test = { fontSize: 60 };
 
   return (
-  // <StackNavigatorDemo />
-    <TabNavigatorDemo />
+   <StackNavigatorDemo />
+    // <TabNavigatorDemo />
+    // <SimpleStackNavDemo />
+    // <TabNavContextDemo />
   )
     
   
